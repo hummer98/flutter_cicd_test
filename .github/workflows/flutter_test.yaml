@@ -19,7 +19,9 @@ jobs:
         with:
           channel: 'stable'
       - run: flutter pub get
+        working-directory: flutter
       - run: flutter test --no-test-assets --coverage --coverage-path=~/coverage/lcov.info
+        working-directory: flutter
       - uses: codecov/codecov-action@v1
         with:
           token: ${{secrets.CODECOV_TOKEN}}
